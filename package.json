@@ -1,21 +1,13 @@
 {
 	"name": "@gandolfini/hooks",
-	"version": "0.0.3",
+	"version": "0.0.3-a",
 	"description": "Esoteric Hooks",
 	"type": "module",
-	"main": "./dist/gandolfini_hooks.umd.js",
-	"module": "./dist/gandolfini_hooks.es.js",
 	"files": [
 		"./dist/**/*"
 	],
-	"exports": {
-		".": {
-			"import": "./dist/gandolfini_hooks.es.js",
-			"require": "./dist/gandolfini_hooks.umd.js"
-		}
-	},
 	"scripts": {
-		"build": "rollup -c",
+		"build": "rimraf dist && rollup -c",
 		"clean": "rimraf dist",
 		"start": "yarn storybook",
 		"lint": "eslint \"{src, tests}/**/*.ts\"",
