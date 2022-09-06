@@ -1,9 +1,13 @@
 {
 	"name": "@gandolfini/hooks",
-	"version": "0.0.2",
+	"version": "0.0.2-c",
+	"description": "Esoteric Hooks",
 	"type": "module",
 	"main": "./dist/gandolfini_hooks.umd.js",
 	"module": "./dist/gandolfini_hooks.es.js",
+	"files": [
+		"./dist/**/*"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/gandolfini_hooks.es.js",
@@ -11,22 +15,18 @@
 		}
 	},
 	"scripts": {
-		"build": "rimraf dist && vite build",
-		"start": "rollup -c -w",
+		"build": "vite build",
+		"clean": "rimraf dist esm",
+		"start": "yarn storybook",
+		"lint": "eslint \"{src, tests}/**/*.{ts,tsx}\"",
 		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook",
-		"serve": "vite preview"
+		"storybook:build": "build-storybook"
 	},
 	"dependencies": {
-		"babel-core": "^6.26.3",
-		"babel-runtime": "^6.26.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
 		"rollup": "^2.79.0",
 		"rollup-plugin-sass": "^1.2.13",
 		"rollup-plugin-typescript2": "^0.33.0",
-		"rollup-plugin-uglify": "^6.0.4",
-		"storybook": "^6.5.10"
+		"rollup-plugin-uglify": "^6.0.4"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.0",
@@ -40,11 +40,26 @@
 		"@storybook/testing-library": "^0.0.13",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.36.2",
+		"@typescript-eslint/parser": "^5.36.2",
 		"@vitejs/plugin-react": "^2.1.0",
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^10.1.0",
 		"babel-loader": "^8.2.5",
+		"babel-plugin-dynamic-import-node": "^2.3.3",
 		"deepmerge": "^4.2.2",
+		"eslint": "^8.23.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-config-react-app": "^7.0.1",
+		"eslint-plugin-react": "^7.31.7",
+		"prettier": "^2.7.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"rimraf": "^3.0.2",
 		"typescript": "^4.6.4",
 		"vite": "^3.1.0"
-	}
+	},
+	"repository": "https://github.com/FooOperator/my-hooks.git",
+	"author": "FooOperator <foxoperator1@gmail.com>",
+	"license": "MIT"
 }
