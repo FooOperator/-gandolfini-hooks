@@ -1,25 +1,21 @@
 {
 	"name": "@gandolfini/hooks",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
-	"files": [
-		"dist"
-	],
 	"main": "./dist/gandolfini_hooks.umd.js",
 	"module": "./dist/gandolfini_hooks.es.js",
+	"exports": {
+		".": {
+			"import": "./dist/gandolfini_hooks.es.js",
+			"require": "./dist/gandolfini_hooks.umd.js"
+		}
+	},
 	"scripts": {
-		"dev": "vite",
-		"build": "rollup -c",
+		"build": "rimraf dist && vite build",
 		"start": "rollup -c -w",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
 		"serve": "vite preview"
-	},
-	"exports": {
-		".": {
-			"import": "./dist/gandolfini_hooks.es.js",
-			"export": "./dist/gandolfini_hooks.umd.js"
-		}
 	},
 	"dependencies": {
 		"babel-core": "^6.26.3",
@@ -34,6 +30,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.0",
+		"@open-wc/building-rollup": "^2.0.2",
 		"@storybook/addon-actions": "^6.5.10",
 		"@storybook/addon-essentials": "^6.5.10",
 		"@storybook/addon-interactions": "^6.5.10",
@@ -45,6 +42,8 @@
 		"@types/react-dom": "^18.0.6",
 		"@vitejs/plugin-react": "^2.1.0",
 		"babel-loader": "^8.2.5",
+		"deepmerge": "^4.2.2",
+		"rimraf": "^3.0.2",
 		"typescript": "^4.6.4",
 		"vite": "^3.1.0"
 	}
