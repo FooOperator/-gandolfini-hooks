@@ -1,13 +1,16 @@
 {
 	"name": "@gandolfini/hooks",
-	"version": "0.0.3-c",
+	"version": "0.0.4",
 	"description": "Esoteric Hooks",
 	"type": "module",
-	"main": "dist/index.cjs.js",
-	"module": "dist/index.esm.js",
-	"browser": "dist/index.umd.js",
+	"main": "dist/cjs/index.js",
+	"cjs": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"browser": "dist/umd/index.js",
 	"files": [
-		"dist"
+		"dist/cjs/",
+		"dist/esm/",
+		"dist/umd/"
 	],
 	"scripts": {
 		"build": "rimraf dist && rollup -c",
@@ -19,10 +22,15 @@
 		"storybook:build": "build-storybook"
 	},
 	"dependencies": {
+		"react-use": "^17.4.0",
 		"rollup": "^2.79.0",
 		"rollup-plugin-sass": "^1.2.13",
 		"rollup-plugin-typescript2": "^0.33.0",
 		"rollup-plugin-uglify": "^6.0.4"
+	},
+	"peerDependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.19.0",
@@ -49,8 +57,6 @@
 		"eslint-config-react-app": "^7.0.1",
 		"eslint-plugin-react": "^7.31.7",
 		"prettier": "^2.7.1",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
 		"rimraf": "^3.0.2",
 		"typescript": "^4.6.4"
 	},
