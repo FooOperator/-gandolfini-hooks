@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import useDebouce from "../useDebounce";
+import useDebounce from "../useDebounce";
 import useToggle from "../useToggle";
 
 const Template = ({ startActive }: { startActive?: boolean }) => {
@@ -10,10 +10,8 @@ const Template = ({ startActive }: { startActive?: boolean }) => {
 		console.log("debounce called");
 	};
 
-	const { active, toggleActive } = useDebouce({
-		delay: 1500,
-		callback: debounceFunc,
-		options: { startActive },
+	const { active, toggleActive } = useDebounce(1500, debounceFunc, {
+		startActive,
 	});
 
 	return (
