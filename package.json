@@ -1,10 +1,11 @@
 {
 	"name": "@gandolfini/hooks",
-	"version": "0.0.3-b",
+	"version": "0.0.3-c",
 	"description": "Esoteric Hooks",
 	"type": "module",
 	"main": "dist/index.cjs.js",
 	"module": "dist/index.esm.js",
+	"browser": "dist/index.umd.js",
 	"files": [
 		"dist"
 	],
