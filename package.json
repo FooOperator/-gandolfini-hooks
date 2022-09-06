@@ -1,10 +1,12 @@
 {
 	"name": "@gandolfini/hooks",
-	"version": "0.0.3-a",
+	"version": "0.0.3-b",
 	"description": "Esoteric Hooks",
 	"type": "module",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
 	"files": [
-		"./dist/**/*"
+		"dist"
 	],
 	"scripts": {
 		"build": "rimraf dist && rollup -c",
@@ -51,7 +53,22 @@
 		"rimraf": "^3.0.2",
 		"typescript": "^4.6.4"
 	},
-	"repository": "https://github.com/FooOperator/my-hooks.git",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FooOperator/my-hooks.git"
+	},
+	"bugs": {
+		"url": "https://github.com/FooOperator/my-hooks/issues"
+	},
+	"keywords": [
+		"react-hooks",
+		"student-project",
+		"typescript",
+		"react",
+		"react-ts",
+		"hooks"
+	],
+	"homepage": "https://github.com/FooOperator/my-hooks#readme",
 	"author": "FooOperator <foxoperator1@gmail.com>",
 	"license": "MIT"
 }
