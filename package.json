@@ -67,10 +67,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/FooOperator/my-hooks.git"
+		"url": "https://github.com/FooOperator/-gandolfini-hooks.git"
 	},
 	"bugs": {
-		"url": "https://github.com/FooOperator/my-hooks/issues"
+		"url": "https://github.com/FooOperator/-gandolfini-hooks/issues"
 	},
 	"keywords": [
 		"react-hooks",
@@ -80,7 +80,7 @@
 		"react-ts",
 		"hooks"
 	],
-	"homepage": "https://github.com/FooOperator/my-hooks#readme",
+	"homepage": "https://github.com/FooOperator/-gandolfini-hooks#readme",
 	"author": "FooOperator <foxoperator1@gmail.com>",
 	"license": "MIT"
 }
