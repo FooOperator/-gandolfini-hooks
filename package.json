@@ -13,13 +13,14 @@
 	],
 	"scripts": {
 		"build": "yarn clean && rollup -c",
-  "chromatic": "npx chromatic --project-token=146ebcb512ac",
+		"chromatic": "npx chromatic --project-token=146ebcb512ac",
 		"clean": "rimraf dist",
 		"start": "yarn storybook",
 		"lint": "eslint \"{src, tests}/**/*.ts\"",
 		"lint:fix": "yarn lint --fix",
 		"storybook": "start-storybook -p 6006",
-		"storybook:build": "build-storybook"
+		"storybook:build": "build-storybook",
+		"storybook:deploy": "yarn storybook:build && yarn chromatic"
 	},
 	"dependencies": {
 		"react-use": "^17.4.0",
