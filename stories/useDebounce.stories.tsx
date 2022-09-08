@@ -18,6 +18,7 @@ const Template = ({ startActive }: { startActive?: boolean }) => {
 		<div>
 			<h2>Current Value: {JSON.stringify(value)}</h2>
 			<h3>Is Debounce Active: {JSON.stringify(active)}</h3>
+			<h4>Every 1.5 seconds, the value will be toggled.</h4>
 			<button onClick={() => toggleActive()}>Toggle Debounce</button>
 		</div>
 	);
