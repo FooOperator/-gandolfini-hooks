@@ -1,6 +1,6 @@
-import { Meta, Story } from "@storybook/react";
-import useDebounce from "../useDebounce";
-import useToggle from "../useToggle";
+import React, { Meta, Story } from "@storybook/react";
+import useDebounce from "../src/useDebounce";
+import useToggle from "../src/useToggle";
 
 const Template = ({ startActive }: { startActive?: boolean }) => {
 	const { value, toggle } = useToggle();

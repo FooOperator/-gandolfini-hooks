@@ -1,10 +1,11 @@
 import { Meta, Story } from "@storybook/react";
-import { useState } from "react";
-import useStack from "../useStack";
+import React, { useState } from "react";
+import { useStack } from "../src";
 
-const Template = ({ collection }: { collection?: any[] }) => {
-	const { stack, push, clear, peek, pop } = useStack<any>(collection);
-	const [lastRemoved, setLastRemoved] = useState<any>();
+const Template = ({ collection }: { collection?: unknown[] }) => {
+	const { stack, push, clear, peek, pop } =
+		useStack<unknown>(collection);
+	const [lastRemoved, setLastRemoved] = useState<unknown>();
 	const [valueToBePushed, setValueToBePushed] = useState<string>();
 
 	return (
@@ -13,11 +14,17 @@ const Template = ({ collection }: { collection?: any[] }) => {
 			<h2>Length: {stack.length}</h2>
 			<ul>
 				{stack.map((item, index) => (
-					<li key={index}>{item}</li>
+					<li key={index}>{JSON.stringify(item)}</li>
 				))}
 			</ul>
-			<h3>Last Removed: {lastRemoved ?? <strong>none</strong>}</h3>
-			<h3>First of stack: {peek() ?? <strong>none</strong>}</h3>
+			<h3>
+				Last Removed:{" "}
+				{JSON.stringify(lastRemoved) ?? <strong>none</strong>}
+			</h3>
+			<h3>
+				First of stack:{" "}
+				{JSON.stringify(peek()) ?? <strong>none</strong>}
+			</h3>
 			<div>
 				<input
 					type="text"

@@ -1,8 +1,5 @@
-import {
-	Meta,
-	Story,
-} from "@storybook/react";
-import useToggle from "./../useToggle";
+import React, { Meta, Story } from "@storybook/react";
+import { useToggle } from "../src";
 
 const Template = (args: { defaultValue?: boolean }) => {
 	const { value, toggle, setFalse, setTrue } = useToggle(

@@ -1,6 +1,6 @@
-import { Meta, Story } from "@storybook/react";
+import React, { Meta, Story } from "@storybook/react";
 import { useState } from "react";
-import useRange from "../useRange";
+import {useRange} from "../src";
 
 const Template = (args: { start: number; end: number }) => {
 	const { end, start, insideRange, insideRangeExclusive } = useRange(
