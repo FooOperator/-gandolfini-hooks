@@ -1,11 +1,13 @@
-export type BlurIntensity = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
+export type BlurIntensity = "xs" | "3xs" | "2xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
 /**
  * Based on the [Tailwind's](https://tailwindcss.com/docs/blur) blur values.
  */
 export const blurValues: { [key in BlurIntensity]: string } = {
-	sm: "4",
-	xs: "8",
+	xs: "2",
+	"2xs": "4",
+	"3xs": "6",
+	sm: "8",
 	md: "12",
 	lg: "16",
 	xl: "24",
