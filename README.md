@@ -11,7 +11,7 @@ A compilation of mostly esoteric hooks and the occasional useful hook.
     <img alt="npm" src="https://img.shields.io/npm/v/@gandolfini/hooks">
   </a>
   <img alt="NPM" src="https://img.shields.io/npm/l/@gandolfini/hooks">
-  <a target="_blank" rel="noopener noreferrer" href="https://6319ee44e951ab1ef9ca7077-xbqianoyoj.chromatic.com/?path=/story/example-introduction--page"> 
+  <a target="_blank" rel="noopener noreferrer" href="https://6319ee44e951ab1ef9ca7077-qfbwxakfsy.chromatic.com/"> 
     <img alt="storybook" src="https://img.shields.io/badge/demos-%F0%9F%96%BC%EF%B8%8F-red" />
   </a>
 </div>
