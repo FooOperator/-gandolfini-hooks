@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import useToggle from "./useToggle";
 
 interface UseDebounceOptions {
 	/**
@@ -14,14 +15,14 @@ interface UseDebounceOptions {
  * @returns ability to deactivate/activate interval as well as the state indicating if the debounce is active or not.
  */
 export default function useDebounce(delay: number, callback: (...args: unknown[]) => void, options?: UseDebounceOptions) {
-	const [active, setActive] = useState<boolean>(options?.startActive ?? true);
+	const { toggle, value: active } = useToggle(options?.startActive ?? true);
 	const [timer, setTimer] = useState<NodeJS.Timeout>();
 
 	/**
 	 *  Allows you to toggle the debounce. If you turn it off, it cancels the current interval.
 	 *
 	 */
-	const toggleActive = () => setActive(prev => !prev);
+	const toggleActive = useCallback(() => toggle(), [active, toggle]);
 
 	useEffect(() => {
 		return () => clearInterval(timer);
