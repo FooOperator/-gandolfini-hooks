@@ -1,17 +1,31 @@
 import React, { Meta, Story } from "@storybook/react";
 import { useToggle } from "../src";
 
+const BUTTON_CLASSNAME =
+	"rounded-md px-3.5 py-1.5 hover:bg-teal-800 ring-1 bg-teal-600 text-white ring-white";
+
 const Template = (args: { defaultValue?: boolean }) => {
 	const { value, toggle, setFalse, setTrue } = useToggle(
 		args.defaultValue
 	);
 
 	return (
-		<div>
-			<h2>Current Value: {JSON.stringify(value)}</h2>
-			<button onClick={toggle}>Toggle</button>
-			<button onClick={setTrue}>Set To True</button>
-			<button onClick={setFalse}>Set To False</button>
+		<div className="flex flex-col gap-2">
+			<h1 className="text-3xl">Toggle</h1>
+			<h2 className="text-center text-2xl">
+				Current Value: {JSON.stringify(value)}
+			</h2>
+			<div className="flex justify-center gap-x-4">
+				<button className={BUTTON_CLASSNAME} onClick={setTrue}>
+					Set To True
+				</button>
+				<button className={BUTTON_CLASSNAME} onClick={toggle}>
+					Toggle
+				</button>
+				<button className={BUTTON_CLASSNAME} onClick={setFalse}>
+					Set To False
+				</button>
+			</div>
 		</div>
 	);
 };

@@ -1,41 +1,46 @@
 import React, { Meta, Story } from "@storybook/react";
 import { useState } from "react";
-import {useRange} from "../src";
+import { useRange } from "../src";
 
 const Template = (args: { start: number; end: number }) => {
-	const { end, start, insideRange, insideRangeExclusive } = useRange(
-		args.start,
-		args.end
-	);
-	const [testValue, setTestValue] = useState<number>(0);
-
+	const { end, start, value, setValue, toggleWrapValue, wrapValue } =
+		useRange(args.start, args.end);
 	return (
 		<div>
-			<p>
-				<span>start: {start}</span>
-			</p>
-			<p>
-				<span>end: {end}</span>
-			</p>
-			<label htmlFor="test-val">Set your value</label>
-			<input
-				id="test-val"
-				type="number"
-				onChange={(e) => setTestValue(+e.target.value)}
-				value={testValue}
-			/>
-			<p>
-				<span>
-					in range inclusive:{" "}
-					{JSON.stringify(insideRange(testValue))}
-				</span>
-			</p>
-			<p>
-				<span>
-					in range exclusive:{" "}
-					{JSON.stringify(insideRangeExclusive(testValue))}
-				</span>
-			</p>
+			<h1 className="text-3xl">Range</h1>
+			<div className="flex flex-col items-center">
+				<div className="flex items-center gap-7">
+					<div className="flex flex-col items-center">
+						<span>start</span>
+						<span>{start}</span>
+					</div>
+					<div className="flex flex-col items-center">
+						<h2>Current Value</h2>
+						<span>{value}</span>
+					</div>
+					<div className="flex flex-col items-center">
+						<span>end</span>
+						<span>{end}</span>
+					</div>
+				</div>
+				<input
+					id="test-val"
+					type="range"
+					min={args.start - 20}
+					max={args.end + 20}
+					onChange={(e) => setValue(+e.target.value)}
+					value={value}
+				/>
+			</div>
+			<label className="flex gap-2 select-none" htmlFor="wrap">
+				<input
+					type="checkbox"
+					id="wrap"
+					checked={wrapValue}
+					onChange={toggleWrapValue}
+				/>
+				Wrap Value
+			</label>
 		</div>
 	);
 };

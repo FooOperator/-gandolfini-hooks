@@ -8,32 +8,58 @@ const Template = ({ collection }: { collection?: unknown[] }) => {
 	const [lastRemoved, setLastRemoved] = useState<unknown>();
 	const [valueToBePushed, setValueToBePushed] = useState<string>();
 
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		push(valueToBePushed);
+		setValueToBePushed("");
+	};
+
 	return (
-		<div>
-			<h1>Stack</h1>
-			<h2>Length: {stack.length}</h2>
-			<ul>
+		<div className="flex flex-col gap-1">
+			<h1 className="text-3xl">Stack</h1>
+			<h2 className="text-2xl">Length: {stack.length}</h2>
+			<p className="text-lg">
+				The <span className="text-red-500 font-medium">red</span>{" "}
+				item will be popped
+			</p>
+			<ul className="grid grid-cols-6 gap-x-2 gap-y-2.5">
 				{stack.map((item, index) => (
-					<li key={index}>{JSON.stringify(item)}</li>
+					<li
+						className={`py-1 px-2 text-center text-md font-medium ${
+							index === 0 ? "text-red-500" : "text-white"
+						} bg-slate-900`}
+						key={index}>
+						{JSON.stringify(item)}
+					</li>
 				))}
 			</ul>
-			<h3>
-				Last Removed:{" "}
-				{JSON.stringify(lastRemoved) ?? <strong>none</strong>}
-			</h3>
-			<h3>
-				First of stack:{" "}
-				{JSON.stringify(peek()) ?? <strong>none</strong>}
-			</h3>
-			<div>
+			<div className="flex justify-center gap-x-4">
+				<p>
+					Last Removed:{" "}
+					{JSON.stringify(lastRemoved) ?? <strong>none</strong>}
+				</p>
+				<p>
+					First of stack:{" "}
+					{JSON.stringify(peek()) ?? <strong>none</strong>}
+				</p>
+			</div>
+			<div className="flex flex-col items-center gap-y-2">
 				<input
+					className="rounded-md text-lg bg-slate-900 text-white  text-center"
 					type="text"
+					form="form"
 					value={valueToBePushed}
+					placeholder={"Type a value and enter..."}
 					onChange={(e) => setValueToBePushed(e.target.value)}
 				/>
-				<button onClick={() => push(valueToBePushed)}>Push</button>
-				<button onClick={() => setLastRemoved(pop())}>Pop</button>
-				<button onClick={() => clear()}>Clear</button>
+				<div className="flex w-full justify-evenly">
+					<button onClick={() => setLastRemoved(pop())}>
+						Pop
+					</button>
+					<button form="form">Push</button>
+					<button onClick={() => clear()}>Clear</button>
+				</div>
+				<form id="form" onSubmit={handleSubmit}></form>
 			</div>
 		</div>
 	);
